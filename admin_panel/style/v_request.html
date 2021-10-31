@@ -1,0 +1,32 @@
+<?php $car= Member::get_post($req["post_id"]); ?>
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <td>السيارة</td>
+            <td><a href="../car.php?id=<?php echo $car['id']; ?>"><?php echo $car["title"] ?></a></td>
+        </tr>
+        <tr>
+            <td>الاسم</td>
+            <td>
+            <p>
+                <?php echo $req["fullname"]; ?> 
+            </p></td>
+        </tr>
+
+            <tr>
+                    <td>رقم الهاتف</td>
+                    <td><p><?php echo $req["phone"]; ?></p></td>
+                </tr>
+                
+                            <tr>
+                    <td>الرحلة و السعر</td>
+                    <td><p><?php echo $req["price"]; ?></p></td>
+                </tr>
+                
+                                            <tr>
+                    <td>التاريخ</td>
+                    <td><p><?php echo $req["date"]; ?></p></td>
+                </tr>
+
+    </tbody>
+</table>

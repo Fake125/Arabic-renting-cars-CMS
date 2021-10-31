@@ -1,0 +1,43 @@
+<div  style=" margin-bottom:350px; height:550px;; width:95%;" class="container">
+
+    <h2 class="page-header">Welcome to Luxury4Travel</h2>
+
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+
+        <!-- Wrapper for Slides -->
+        <div  class="carousel-inner">
+            
+<?php
+        global $POSTS;
+        for($i=count($POSTS)-1; $i>-1; $i--):
+        $item = ($i==count($POSTS)-1) ? "active" : "";
+
+        ?>
+            
+            <div class="item <?php echo $item; ?>">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('<?php echo $POSTS[$i]["img"] ?>');"></div>
+                <div class="carousel-caption">
+                    <a style="color:white;" href="car.php?id=<?php echo $POSTS[$i]["id"]; ?>"><h2><?php echo $POSTS[$i]["title"] ?></h2></a>
+                </div>
+                </div>
+            <?php
+            endfor;
+            ?>
+
+
+        
+        
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"> <span class="icon-prev"></span> </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"> <span class="icon-next"></span> </a>
+
+    </div>
+    <hr>
+
+</div>
+
+<!-- /.container -->

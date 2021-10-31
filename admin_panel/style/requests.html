@@ -1,0 +1,75 @@
+<h1 style="text-align: right; margin-right:55px; font-size:60px;">الطلبات الجديدة</h1>
+
+<div class="container">
+
+    <table id="zh" dir="rtl" class="table table-striped">
+        <thead>
+            <tr>
+                <th>نوع الطلب</th>
+                <th>تاريخ الطلب</th>
+                <th>الخيارات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php for($i=0;$i<count($new[0]);$i++): ?>
+            <tr>
+                <td style="text-align:center;">اعضاء<?php ?></td>
+                <td><?php echo $new[0][$i]["date"]; ?></td>
+                <td><a href="?u_request=<?php echo $new[0][$i]['id']; ?>">عرض الطلب</a></td>
+            </tr>
+            
+            <?php endfor; ?>
+            
+                        <?php for($i=0;$i<count($new[1]);$i++): ?>
+            <tr>
+                <td style="text-align:center;">زوار</td>
+                <td><?php echo $new[1][$i]["date"]; ?></td>
+                <td><a href="?v_request=<?php echo $new[1][$i]['id']; ?>">عرض الطلب</a></td>
+            </tr>
+            
+            <?php endfor; ?>
+
+        </tbody>
+    </table>
+
+</div>
+
+<hr>
+
+<h1 style="text-align: right; margin-right:55px; font-size:60px;">الطلبات القديمة</h1>
+
+<div class="container">
+
+    <table id="zh" dir="rtl" class="table table-striped">
+        <thead>
+            <tr>
+                <th>نوع الطلب</th>
+                <th>تاريخ الطلب</th>
+                <th>الخيارات</th>
+            </tr>
+        </thead>
+        <tbody>
+                        <?php for($i=0;$i<count($old[0]);$i++): ?>
+            <tr>
+                <td style="text-align:center;">اعضاء</td>
+                <td><?php echo $old[0][$i]["date"]; ?></td>
+                <td><a href="?u_request=<?php echo $old[0][$i]['id']; ?>">عرض الطلب</a></td>
+            </tr>
+            
+            <?php endfor; ?>
+            
+            
+                                    <?php for($i=0;$i<count($old[1]);$i++): ?>
+            <tr>
+                <td style="text-align:center;">زوار</td>
+                <td><?php echo $old[1][$i]["date"]; ?></td>
+                <td><a href="?v_request=<?php echo $old[1][$i]['id']; ?>">عرض الطلب</a></td>
+            </tr>
+            
+            <?php endfor; ?>
+
+
+        </tbody>
+    </table>
+
+</div>

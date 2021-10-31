@@ -1,0 +1,94 @@
+<script>
+	function upload() {
+		window.open("./up.php", "_blank", "width=500,height=500")
+	}
+</script>
+<h1 style="text-align: right; margin-right:55px; font-size:60px;">تعديل</h1>
+<div dir="rtl" class="container">
+
+    <form action="" method="post" role="form">
+
+        <div class="form-group">
+
+            <label for="name">حالة السيارة</label>
+            <select name="status" multiple class="form-control">
+                <option value="1" <?php if($post["car_status"]=="available") { echo "selected='selected'";} ?>" >متاحة</option>
+                <option value="0" <?php if($post["car_status"]!="available") { echo "selected='selected'";} ?> >غير متاحة</option>
+                </select>
+                <input name="year" type="text" class="form-control" placeholder="العام" value="<?php echo $post["car_year"]; ?>" >
+                <input name="img" style="width:400px; display:inline;" type="text" class="form-control" placeholder="رابط الصورة" value="<?php echo $post["img"]; ?>" >
+                <button onclick="upload()" class="btn-primary">
+                رفع صورة
+                </button>
+                <h2>النسخة العربي</h2>
+                <hr>
+                <input name="title_ar" type="text" class="form-control" placeholder="العنوان بالعربي" value="<?php echo $post["title_ar"]; ?>">
+                <textarea  name="desc_ar" class="form-control" rows="3" placeholder="الوصف بالعربي"><?php echo $post["description_ar"]; ?></textarea>
+                <input name="brand_ar" type="text" class="form-control" placeholder="ماركة السيارة بالعربي" value="<?php echo $post["car_brand_ar"]; ?>">
+                <input name="model_ar" type="text" class="form-control" placeholder="موديل السيارة بالعربي" value="<?php echo $post["car_model_ar"]; ?>">
+                <input  name="color_ar"  type="text" class="form-control" placeholder="لون السيارة بالعربي" value="<?php echo $post["car_color_ar"]; ?>">
+                <label for="name">الاسعار بالعربي</label>
+                <ul>
+
+                <?php
+                for($i=0;$i<15;$i++):
+                if(isset($price_ar[$i])){
+                $r = explode("::",$price_ar[$i]);
+                }
+                else{
+                $r[0] = $r[1] = $r[2] = $r[3] = NULL;
+                }
+                ?>
+                <li>
+                <input name="ar_from_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="من" value="<?php echo $r[0]; ?>">
+                <input name="ar_to_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="الى" value="<?php echo $r[1]; ?>" >
+                <input name="ar_euro_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="السعر باليورو" value="<?php echo $r[2]; ?>">
+                <input name="ar_dollar_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="السعر بالدولار" value="<?php echo $r[3]; ?>">
+
+                </li>
+
+                <?php
+                endfor;
+                ?>
+                </ul>
+
+                <h2>النسخة الانجلش</h2>
+                <input  name="title" type="text" class="form-control" placeholder="العنوان بالانجلش" value="<?php echo $post["title"]; ?>">
+                <textarea  name="desc" class="form-control" rows="3" placeholder="الوصف بالانجلش" ><?php echo $post["description"]; ?></textarea>
+                <input name="brand" type="text" class="form-control" placeholder="ماركة السيارة بالانجلش" value="<?php echo $post["car_brand"]; ?>">
+                <input name="model" type="text" class="form-control" placeholder="موديل السيارة بالانجلش" value="<?php echo $post["car_model"]; ?>">
+                <input name="color" type="text" class="form-control" placeholder="لون السيارة بالانجلش" value="<?php echo $post["car_color"]; ?>">
+
+                <label for="name">الاسعار بالانجلش</label>
+                <ul>
+                    <?php
+                    for($i=0;$i<15;$i++):
+                    if(isset($price_en[$i])){
+                    $r = explode("::",$price_en[$i]);
+                    }
+                    else{
+                    $r[0] = $r[1] = $r[2] = $r[3] = NULL;
+                    }
+                    ?>
+                    <li>
+                        <input name="from_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="من" value="<?php echo $r[0]; ?>">
+                        <input name="to_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="الى" value="<?php echo $r[1]; ?>">
+                        <input name="euro_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="السعر باليورو" value="<?php echo $r[2]; ?>">
+                        <input name="dollar_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="السعر بالدولار" value="<?php echo $r[3]; ?>">
+
+                    </li>
+                    <?php
+                    endfor;
+                    ?>
+                </ul>
+
+        </div>
+
+        <center>
+            <button type="submit" name="edit" style="margin-left:0px;" id="Loign_button" type="button" class="btn btn-info active">
+                تعديل
+            </button>
+        </center>
+    </form>
+
+</div>

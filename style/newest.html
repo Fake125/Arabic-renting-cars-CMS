@@ -1,0 +1,55 @@
+
+
+
+
+    <div style="margin-bottom: 200px;" class="container">
+             <h1 style="position:static;">Newest Offers</h1>
+             
+             <hr>
+
+        <div class="row">
+
+
+<?php
+        global $POSTS;
+        for($i=count($POSTS)-1; $i>-1; $i--):
+
+        ?>
+
+
+
+
+   <div style='position:static; width:322px; margin-left:0px;' class='col-sm-4 col-lg-4 col-md-4'>
+                        <div class='thumbnail'>
+                           <a href='./car.php?id=<?php echo $POSTS[$i]["id"] ?>'> <img src='<?php echo $POSTS[$i]["img"]; ?>' alt=''>
+                            <div class='caption'>
+                                
+                                <h4 style='text-align:center;'> <?php echo $POSTS[$i]["title"]; ?></h4></a>
+                            </div>
+                           
+
+                        </div>
+                    </div>         
+                    
+                    
+                    
+                    
+
+                    
+                    
+          <?php
+          endfor;
+          ?>          
+                    
+                    
+                    
+                    
+                </div>
+
+
+<hr>
+    </div>
+    <!-- /.container -->
+
+
+

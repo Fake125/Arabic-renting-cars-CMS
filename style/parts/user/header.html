@@ -1,0 +1,75 @@
+<nav id="MyHeader" class="navbar navbar-default" role="navigation">
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <?php $nots = User::get_notifications(Storage::check_user()); ?>
+            <?php $color = (count($nots)==0)? "#454545":"red" ?>
+            <li class="dropdown">
+                <a  href="#" class="dropdown-toggle" data-toggle="dropdown">Notifications <span style="background: <?php echo $color; ?>;" class="badge"><?php echo count($nots); ?></span></a>
+                <ul class="dropdown-menu">
+                    <?php
+                    for($i=0;$i
+                    <count($nots);$i++):
+                    $xx = "";
+                    if($nots[$i]["type"]=="alert")
+                    $xx = "Alert";
+                    elseif($nots[$i]["type"]=="accepted")
+                    $xx = "Your Request is Accepted";
+                    elseif($nots[$i]["type"]=="refused")
+                    $xx = "Your Request is Refused";
+                    $rr = ($nots[$i]["type"] == "alert") ? "i" : "ii";
+                    ?>
+                        
+                        <?php if($i == 0){
+
+                        }
+                        else{
+                        ?>
+
+                        <li class="divider">
+                            <?php
+                            }
+                            ?>
+                        <li  style="text-align:center;">
+                            <a href="index.php?<?php echo $rr ?>=<?php echo $i; ?>"><?php echo $xx; ?></a>
+                        </li>
+                        <?php endfor; ?>
+
+            </li>
+        </ul>
+        </li>
+
+        <li class="dropdown">
+            <a  href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Storage::check_user(); ?><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+     
+                <li>
+                    <a href="general.php?logout">Logout</a>
+                </li>
+            </ul>
+        </li>
+
+        <div dir="ltr" id="langs" style="display:inline-block; margin-left:200px; margin-top:13px;" class="input-group">
+            <a href="general.php?lang=ar">عربي</a> | <a href="general.php?lang=en">English</a>
+        </div>
+        </ul>
+
+        <div id="ss" class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search" action="search.php" method="get">
+                <div class="input-group">
+
+                    <input style="width:250px;" type="text" class="form-control" placeholder="Search" name="s">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</nav>
+
+<?php include_once("./style/parts/user/notify.html"); ?>
+<?php include_once("./style/parts/user/alert.html"); ?>

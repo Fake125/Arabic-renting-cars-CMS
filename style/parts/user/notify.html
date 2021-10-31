@@ -1,0 +1,40 @@
+<?php if(isset($_GET["ii"])):
+$i = $_GET["ii"];
+$type= $nots[$i]["type"];
+if($type=="accepted")
+$type="Your Request is Accepted";
+else
+$type="Your Request is Refused";
+?>
+<script>
+    $(function() {
+        $('#not').modal('show')
+    }); 
+</script><!-- Modal -->
+<div class="modal fade" id="not" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div id="notify" >
+        <button style="margin-right:4px;" type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <?php had_seen($nots[$i]["id"]); ?>
+        <h3><?php echo $type; ?></h2>
+        <hr>
+        <?php
+        $post = Member::get_post($nots[$i]["post_id"]);
+        ?>
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>Car</td>
+                    <td><a href="car.php?id=<?php echo $nots[$i]["post_id"]; ?>"><?php echo $post["title"] ?></a></td>
+                </tr>
+                <tr>
+                    <td>Notes</td>
+                    <td><textarea readonly><?php echo $nots[$i]["notes"]; ?></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div><!-- /.modal -->
+
+<?php endif; ?>

@@ -1,0 +1,30 @@
+<div class="container">
+<hr style="margin-top:50px;">
+<div class="module form-module">
+
+  <div class="form">
+    <h2>تسجيل دخول</h2>
+    
+    
+   <form action="#" method="post" >
+      <input type="text" placeholder="اسم الدخول" name="username" required />
+      <input type="password" placeholder="كلمة المرور" name="password" required />
+       <button type="submit" name="rr" >تسجيل دخول</button>
+    </form>
+    
+<?php validate_login(); ?>
+    
+
+    
+  </div>
+   <div class="cta"><a data-toggle="modal" data-target="#forg" href="">هل نسيت كلمة المرور ؟</a></div>
+  <div class="cta"><a href="./sign_up.php">تسجيل عضوية جديدة</a></div>
+
+</div>
+
+
+
+<hr style="margin-bottom:200px;">
+</div>
+
+<?php include_once("./style/forget.html"); ?>

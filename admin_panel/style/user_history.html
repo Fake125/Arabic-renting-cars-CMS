@@ -1,0 +1,23 @@
+<h1 style="text-align: right; margin-right:55px; font-size:60px;">طلبات <?php echo $user; ?></h1>
+
+<div class="container">
+
+<table id="zh" dir="rtl" class="table table-striped">
+<thead>
+<tr>
+<th>التاريخ</th>
+<th>الخيارات</th>
+</tr>
+</thead>
+<tbody>
+<?php for($i=0;$i<count($reqs);$i++): ?>
+<tr>
+    <td><?php echo $reqs[$i]["date"]; ?></td>
+    <td><a href="requests.php?u_request=<?php echo $reqs[$i]['id']; ?>">عرض</a></td>
+</tr>
+<?php endfor; ?>
+
+</tbody>
+</table>
+
+</div>

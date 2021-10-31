@@ -1,0 +1,26 @@
+<h1 style="text-align: right; margin-right:55px; font-size:60px;">الاعضاء</h1>
+
+<div class="container">
+
+<table id="zh" dir="rtl" class="table table-striped">
+<thead>
+<tr>
+<th>الرقم</th>
+<th>اسم الدخول</th>
+<th>عدد الطلبات</th>
+<th>الخيارات</th>
+</tr>
+</thead>
+<tbody>
+    <?php for($i=0;$i<count($users);$i++): ?>
+<tr>
+<td style="text-align:center;"><?php echo $users[$i]["id"]; ?></td>
+<td><?php echo $users[$i]["username"]; ?></td>
+<td><?php echo Admin::get_num_requests_byuser($users[$i]["username"]); ?></td>
+<td><a href="?view=<?php echo $users[$i]['username']; ?>">عرض</a> | <a href="?history=<?php echo $users[$i]['username']; ?>">عرض الطلبات</a> | <a href="?delete=<?php echo $users[$i]['username']; ?>">حذف</a> | <a href="?alert=<?php echo $users[$i]['username']; ?>">ارسال تنبيه</a></td>
+</tr>
+<?php endfor; ?>
+</tbody>
+</table>
+
+</div>

@@ -1,0 +1,53 @@
+<?php $car= Member::get_post($req["post_id"]); ?>
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <td>السيارة</td>
+            <td><a href="../car.php?id=<?php echo $car['id']; ?>"><?php echo $car["title"] ?></a></td>
+        </tr>
+        <tr>
+            <td>العضو</td>
+            <td><a href="users.php?view=<?php echo $req['username']; ?>"><?php echo $req["username"] ?></a></td>
+        </tr>
+
+        <tr>
+            <td>ملاحظات العضو</td>
+            <td>            <textarea style="width:500px; height:200px;" readonly><?php echo $req["price"]; ?></textarea></td>
+        </tr>
+
+        <tr>
+            <td>الرحلة و السعر</td>
+            <td>
+            <p>
+                <?php echo $req["price"]; ?>
+            </p></td>
+        </tr>
+
+        <tr>
+            <td>التاريخ</td>
+            <td>
+            <p>
+                <?php echo $req["date"]; ?>
+            </p></td>
+        </tr>
+
+    </tbody>
+</table>
+
+<?php if($req["response"] == 0 ){ ?>
+
+<center><a href="?response=<?php echo $req['post_id']; ?>&user=<?php echo $req['username']; ?>&req=<?php echo $req['id']; ?>">
+<button type="submit" style="margin-left:0px;" id="Loign_button" type="button" class="btn btn-info active">
+    استجابة
+</button></a></center>
+
+<?php }
+
+else{
+ ?>
+ 
+<center><h3>تم ارسال استجابة سابقاً على هذا الطلب</h3></center>
+
+<?php
+}
+?>

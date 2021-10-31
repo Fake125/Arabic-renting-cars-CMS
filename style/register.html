@@ -1,0 +1,53 @@
+<script>
+  function REG(){
+      var username = document.forms["reg"]["username"].value;
+      var fullname = document.forms["reg"]["fullname"].value;
+      var password = document.forms["reg"]["password"].value;
+      var email = document.forms["reg"]["email"].value;
+      var phone = document.forms["reg"]["phone"].value;
+      if(username.length <3){
+          document.forms["reg"]["username"].style = "border:1px solid red;";
+          document.forms["reg"]["username"].placeholder = "should be more than 3 characters";
+          return false;
+      }
+      
+     if(fullname.length<12){
+             document.forms["reg"]["fullname"].style = "border:1px solid red;";      
+          return false;
+      }
+      
+           if(password.length<5){
+             document.forms["reg"]["password"].style = "border:1px solid red;"; 
+              document.forms["reg"]["password"].placeholder = "should be more than 4 characters";     
+          return false;
+      }
+      
+                 if(phone.length<9 || isNaN(phone) === true ){
+             document.forms["reg"]["phone"].style = "border:1px solid red;"; 
+              document.forms["reg"]["phone"].placeholder = "should be more than 9 digits";     
+          return false;
+      }
+  }  
+</script>
+<div class="container">
+<hr style="margin-top:50px;">
+
+
+<div class="module form-module">
+ <div class="form">
+    <h2>Create an account</h2>
+    <form name="reg" action="" onsubmit="return REG()" method="post" required>
+      <input name="username" type="text" placeholder="Username" required />
+      <input name="fullname" type="text" placeholder="Full name" required />
+      <input name="password" type="password" placeholder="Password" required />
+      <input name="email" type="email" placeholder="Email Address" required />
+      <input name="phone" type="tel" placeholder="Phone Number" required />
+      <button type="submit" name="register">Register</button>
+    </form>
+  </div>
+
+</div>
+
+
+<hr style="margin-bottom:200px;">
+</div>

@@ -1,0 +1,82 @@
+<script>
+	function upload() {
+		window.open("./up.php", "_blank", "width=500,height=500")
+	}
+	
+</script>
+<h1 style="text-align: right; margin-right:55px; font-size:60px;">إضافة  عرض</h1>
+<div dir="rtl" class="container">
+
+    <form role="form" action="" method="post">
+
+        <div class="form-group">
+
+            <label for="name">حالة السيارة</label>
+            <select name="status" multiple class="form-control" required>
+                <option value="1">متاحة</option>
+                <option value="0">غير متاحة</option>
+            </select>
+            <input name="year" type="text" class="form-control" placeholder="العام" required>
+            <input name="img" style="width:400px; display:inline;" type="text" class="form-control" placeholder="رابط الصورة" required>
+            <button type="button" onclick="upload()" class="btn-primary">
+                رفع صورة
+            </button>
+            <h2>النسخة العربي</h2>
+            <hr>
+            <input name="title_ar" type="text" class="form-control" placeholder="العنوان بالعربي" required>
+            <textarea  name="desc_ar" class="form-control" rows="3" placeholder="الوصف بالعربي" required></textarea>
+            <input name="brand_ar" type="text" class="form-control" placeholder="ماركة السيارة بالعربي" required>
+            <input name="model_ar" type="text" class="form-control" placeholder="موديل السيارة بالعربي" required>
+            <input name="color_ar" type="text" class="form-control" placeholder="لون السيارة بالعربي" required>
+            <label for="name">الاسعار بالعربي</label>
+            <ul>
+                <?php
+                for($i=0; $i<15; $i++):
+                ?>
+                <li>
+                    <input name="ar_from_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="من">
+                    <input name="ar_to_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="الى">
+                    <input name="ar_euro_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="السعر باليورو">
+                    <input name="ar_dollar_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="السعر بالدولار">
+
+                </li>
+                <?php
+                endfor;
+                ?>
+
+            </ul>
+            <h2>النسخة الانجلش</h2>
+            <input name="title" type="text" class="form-control" placeholder="العنوان بالانجلش" required>
+            <textarea name="desc" class="form-control" rows="3" placeholder="الوصف بالانجلش" required></textarea>
+            <input name="brand" type="text" class="form-control" placeholder="ماركة السيارة بالانجلش" required>
+            <input name="model" type="text" class="form-control" placeholder="موديل السيارة بالانجلش" required>
+            <input name="color" type="text" class="form-control" placeholder="لون السيارة بالانجلش" required>
+
+            <label for="name">الاسعار بالانجلش</label>
+            <ul>
+                <?php
+                for($i=0; $i<15; $i++):
+                ?>
+                <li>
+                    <input name="from_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="من">
+                    <input name="to_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="الى">
+                    <input name="euro_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="السعر باليورو">
+                    <input name="dollar_<?php echo $i; ?>" style="width:200px; display:inline; " type="text" class="form-control" placeholder="السعر بالدولار">
+
+                </li>
+                <?php
+                endfor;
+                ?>
+
+            </ul>
+
+        </div>
+
+        <center>
+            <button name="offer" type="submit" style="margin-left:0px;" id="Loign_button" type="button" class="btn btn-info active">
+                اضافة
+            </button>
+        </center>
+    </form>
+
+</div>

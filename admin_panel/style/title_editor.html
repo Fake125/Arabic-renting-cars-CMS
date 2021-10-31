@@ -1,0 +1,13 @@
+<h1 style="text-align: right; margin-right:55px; font-size:60px;">تعديل عنوان الموقع</h1>
+<form action="" method="post">
+<label for="name">العنوان بالعربي</label>
+<input name="ar" type="text" class="form-control" placeholder="العنوان بالعربي" value="<?php Admin::get_title(""); ?>" required>
+<label for="name">العنوان بالانجلش</label>
+<input name="en" type="text" class="form-control" placeholder="العنوان بالانجلش" value="<?php Admin::get_title("ar"); ?>" required value="get_title">
+
+<center>
+    <button name="set" type="submit" style="margin-left:0px;" id="Loign_button" type="button" class="btn btn-info active">
+        تعديل
+    </button>
+</center>
+</form>

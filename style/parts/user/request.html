@@ -1,0 +1,37 @@
+<div class="modal fade" id="s" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div id="request_popup" >
+
+        <div class="module form-module">
+
+            <div class="form">
+                <h2>Request Application</h2>
+
+                <form action="#" method="post" >
+                    <label for="name">Notes(Optional)</label>
+                    <textarea name="notes" style="margin-bottom:20px;" class="form-control" rows="3"></textarea>
+                    <label for="name">Choose Your trip</label>
+                    <select required name="price" style="margin-bottom:20px;" multiple class="form-control">
+
+                        <?php global $POST; $price = $POST->get_prices(); ?>
+                        <?php for($i=0;$i
+                        <count($price)-1;$i++):
+                        $x_price = explode("::",$price[$i]);
+                        ?>
+                            <option value='<?php echo "From $x_price[0] To $x_price[1] = $x_price[2] = $x_price[3]"; ?>'><?php echo "From $x_price[0] To $x_price[1]"; ?></option>
+                            <?php endfor; ?>
+                    </select>
+
+                    <button type="submit" name="requestt" >
+                        Send
+                    </button>
+                    <button style="margin-top:5px;" type="button" data-dismiss="modal" aria-hidden="true">
+                        Cancel
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div><!-- /.modal -->

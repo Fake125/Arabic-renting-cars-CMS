@@ -1,0 +1,33 @@
+<?php 
+$bool = (Storage::check_lang() == "ar") ? true : false;
+$from = ($bool) ? "من" : "From";
+$to = ($bool) ? "إلى" : "To";
+$euro = ($bool) ? "يورو" : "&euro;";
+$dollar = ($bool) ? "دولار" : "$";
+$or = ($bool) ? "أو" : "OR";
+?>
+<div class="modal fade" id="prices" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div id="price_popup" >
+        
+<table class="table table-striped">
+<tbody>
+ <?php $price = $POST->get_prices(); ?>
+                <?php for($i=0;$i
+                <count($price)-1;$i++):
+                $x_price = explode("::",$price[$i]);
+                ?>
+                <tr>
+                <td> <?php echo $from ?> <?php echo $x_price[0]; ?> <?php echo $to; ?> <?php echo $x_price[1]; ?> ( <?php echo $x_price[2] ?> <?php echo $euro; ?> <?php echo $or; ?> <?php echo $x_price[3]; ?> <?php echo $dollar; ?> )</td>
+                </tr>
+                <?php endfor; ?>
+
+
+
+</tbody>
+</table>
+
+
+        </div>
+
+    </div>
+</div><!-- /.modal -->

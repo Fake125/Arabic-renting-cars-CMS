@@ -1,0 +1,23 @@
+<script>
+	tinymce.init({
+		selector : '#Areditor'
+	}); 
+	   tinymce.init({
+        selector : '#Eneditor'
+    }); 
+</script>
+<h1 style="text-align: right; margin-right:55px; font-size:60px;">تعديل معلومات عنا</h1>
+<form action"" method="post">
+    <label for="name">النص بالعربي</label>
+    <textarea name="ar" id="Areditor"><?php get_aboutus("ar"); ?></textarea>
+    <label for="name">النص بالانجلش</label>
+<textarea name="en" id="Eneditor"><?php get_aboutus(""); ?></textarea>
+
+
+
+    <center>
+        <button name="set" type="submit" style="margin-left:0px;" id="Loign_button" type="button" class="btn btn-info active">
+            تعديل
+        </button>
+    </center>
+</form>

@@ -1,0 +1,29 @@
+<div class="container">
+<hr style="margin-top:50px;">
+<div class="module form-module">
+
+  <div class="form">
+    <h2>Login</h2>
+    
+    
+   <form action="#" method="post" >
+      <input type="text" placeholder="Username" name="username" required />
+      <input type="password" placeholder="Password" name="password" required />
+       <button type="submit" name="rr" >Login</button>
+    </form>
+    
+<?php validate_login(); ?>
+    
+
+    
+  </div>
+   <div class="cta"><a data-toggle="modal" data-target="#forg" href="#">Forgot your password?</a></div>
+  <div class="cta"><a  href="./sign_up.php">Sign up</a></button>
+      
+  </div>
+
+</div>
+<hr style="margin-bottom:200px;">
+</div>
+
+<?php include_once("./style/forget.html"); ?>

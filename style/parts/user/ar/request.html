@@ -1,0 +1,38 @@
+<div class="modal fade" id="s" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div id="request_popup" >
+
+        <div class="module form-module">
+
+            <div class="form">
+                <h2>إستمارة طلب</h2>
+
+                <form action="#" method="post" >
+                    <label for="name">ملاحظاتك(اختياري)</label>
+                    <textarea name="notes" style="margin-bottom:20px;" class="form-control" rows="3"></textarea>
+                    <label for="name">اختار رحلتك</label>
+                    <select required name="price" style="margin-bottom:20px;" multiple class="form-control">
+                        
+                                       <?php global $POST; $price = $POST->get_prices(); ?>
+                <?php for($i=0;$i
+                        <count($price)-1;$i++):
+                        $x_price = explode("::",$price[$i]);
+                        ?>
+                            <option><?php echo "من $x_price[0] إلى $x_price[1]"; ?></option>
+                            <?php endfor; ?>
+                            </select>
+
+
+                    <button type="submit" name="requestt" >
+                        ارسال
+                    </button>
+                    <button style="margin-top:5px;" type="button" data-dismiss="modal" aria-hidden="true">
+                        إلغاء
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div><!-- /.modal -->

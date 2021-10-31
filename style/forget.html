@@ -1,0 +1,26 @@
+<?php
+$bool = (Storage::check_lang() == "ar") ? true : false;
+$tt = ($bool) ? "ادخل بريك الالكتروني المسجل لدينا" : "Enter Your registered email";
+$place = ($bool) ? "البريد الالكتروني" : "Email";
+$submit = ($bool) ? "استعادة" : "Reset";
+?>
+<div class="modal fade" id="forg" tabindex="-1" role="dialog"  aria-hidden="true">
+ 
+   
+        
+        <div class="module form-module">
+
+  <div class="form">
+     <h2><?php echo $tt; ?></h2> 
+    
+    
+   <form action="#" method="post" >
+      <input type="email" placeholder="<?php echo $place; ?>" name="email" required />
+
+       <button type="submit" name="reset" ><?php echo $submit; ?></php></button>
+    </form>
+    </div>
+    </div>
+</div><!-- /.modal -->
+
+<?php forget(); ?>

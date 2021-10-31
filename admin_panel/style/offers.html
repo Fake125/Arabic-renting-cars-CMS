@@ -1,0 +1,34 @@
+<h1 style="text-align: right; margin-right:55px; font-size:60px;">العروض</h1>
+<div class="container">
+    <center>
+        <a href="?ADD">
+        <button style="margin-left:0px;" id="Loign_button" type="button" class="btn btn-info active">
+            اضافة عرض
+        </button></a>
+    </center>
+    <table id="zh" dir="rtl" class="table table-striped">
+        <thead>
+            <tr>
+                <th>العنوان</th>
+                <th>ماركة السيارة</th>
+                <th>موديل السيارة</th>
+                <th>العام</th>
+                <th>الخيارات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php for($i=count($posts)-1; $i>-1; $i--): ?>
+            <tr>
+                <td><?php echo $posts[$i]["title"] ?></td>
+                <td><?php echo $posts[$i]["car_brand"] ?></td>
+                <td><?php echo $posts[$i]["car_model"] ?></td>
+                <td><?php echo $posts[$i]["car_year"] ?></td>
+                <td><a href="offers.php?edit=<?php echo $posts[$i]["id"]; ?>">تعديل</a> | <a href="offers.php?delete=<?php echo $posts[$i]["id"]; ?>">حذف</a></td>
+            </tr>
+
+            <?php endfor; ?>
+
+        </tbody>
+    </table>
+
+</div>
